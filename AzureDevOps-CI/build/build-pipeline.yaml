@@ -8,10 +8,22 @@ pool:
    - agent.name -equals Build Agent A
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script v2'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+    feedsToUse: 'select'
+    vstsFeed: '5cf7e4aa-deed-4f3e-9c3e-116836a48d36'
 
-- script: |
-    echo Add a multiline script v2
-    echo One more v2
-  displayName: 'Run a multi-line script v2'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: '**/*.csproj'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: '**/Tests.csproj'
+
+- script: echo All done
+  displayName: 'All done'
