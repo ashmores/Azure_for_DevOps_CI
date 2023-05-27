@@ -27,7 +27,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '4(System.DefaultWorkingDirectory)/Azure_for_DevOps_C/bin'
+    SourceFolder: '4(System.DefaultWorkingDirectory)/Azure_for_DevOps_CI/bin'
     Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
