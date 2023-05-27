@@ -1,8 +1,10 @@
-﻿trigger:
+trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  name: New Agent Pool
+  demands:
+   - agent.name -equals Build Agent A
 
 steps:
 - script: echo Hello, world!
